@@ -27,130 +27,135 @@
     body {
       font-family: Georgia, "Times New Roman", serif;
       background:
-        linear-gradient(rgba(255, 250, 240, 0.93), rgba(255, 250, 240, 0.93)),
+        linear-gradient(rgba(255, 250, 240, 0.95), rgba(255, 250, 240, 0.95)),
         url("https://www.transparenttextures.com/patterns/cream-paper.png");
       color: var(--cafe);
+      padding: 10px 8px;
     }
 
     .carta {
-      width: min(1000px, 95%);
-      margin: 20px auto;
+      max-width: 600px;
+      margin: 0 auto;
       background-color: var(--crema);
-      border: 6px solid var(--vino);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-      padding: 12px;
+      border: 3px solid var(--vino);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      padding: 6px;
+      border-radius: 8px;
     }
 
     .marco {
-      border: 2px solid var(--dorado);
-      padding: 25px 20px;
+      border: 1px solid var(--dorado);
+      padding: 18px 12px;
+      border-radius: 4px;
     }
 
     header {
       text-align: center;
-      padding-bottom: 20px;
-      border-bottom: 2px solid var(--dorado);
+      padding-bottom: 15px;
+      border-bottom: 1.5px solid var(--dorado);
     }
 
     .nombre-restaurante {
       color: var(--vino);
-      font-size: clamp(32px, 6vw, 65px);
-      letter-spacing: 2px;
+      font-size: clamp(26px, 8vw, 36px);
+      letter-spacing: 1px;
       text-transform: uppercase;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
+      line-height: 1.1;
     }
 
     .subtitulo {
       color: var(--verde);
-      font-size: clamp(15px, 3.5vw, 18px);
+      font-size: 14px;
       font-style: italic;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
     }
 
     .decoracion {
       color: var(--dorado);
-      font-size: 24px;
-      margin: 12px 0;
+      font-size: 18px;
+      margin: 8px 0;
     }
 
     .descripcion {
       color: var(--gris);
-      font-size: 14px;
+      font-size: 13px;
       line-height: 1.4;
     }
 
     .seccion {
-      margin-top: 30px;
+      margin-top: 24px;
     }
 
     .titulo-seccion {
       display: flex;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 18px;
+      gap: 8px;
+      margin-bottom: 14px;
       color: var(--vino);
     }
 
     .titulo-seccion::before,
     .titulo-seccion::after {
       content: "";
-      height: 2px;
+      height: 1px;
       background-color: var(--dorado);
       flex: 1;
     }
 
     .titulo-seccion h2 {
-      font-size: clamp(18px, 4vw, 24px);
+      font-size: 18px;
       text-transform: uppercase;
       letter-spacing: 1px;
       text-align: center;
     }
 
     .plato {
-      margin: 18px 0;
+      margin: 14px 0;
+      padding-bottom: 8px;
     }
 
     .fila-plato {
       display: flex;
+      justify-content: space-between;
       align-items: baseline;
       gap: 8px;
-      flex-wrap: wrap; /* Permite adaptarse a pantallas angostas */
     }
 
     .nombre-plato {
       color: var(--cafe);
-      font-size: 17px;
+      font-size: 16px;
       font-weight: bold;
-      display: inline-flex;
+      display: flex;
       align-items: center;
       flex-wrap: wrap;
       gap: 6px;
+      flex: 1;
     }
 
     .puntos {
-      border-bottom: 2px dotted var(--dorado);
+      border-bottom: 1px dotted var(--dorado);
       flex: 1;
-      min-width: 20px;
+      min-width: 15px;
+      margin: 0 4px;
       align-self: flex-end;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
 
     .precio {
       color: var(--rojo);
-      font-size: 17px;
+      font-size: 16px;
       font-weight: bold;
       white-space: nowrap;
-      margin-left: auto;
     }
 
     .descripcion-plato {
       color: var(--gris);
       font-family: Arial, sans-serif;
-      font-size: 13.5px;
+      font-size: 13px;
       font-style: italic;
       margin-top: 4px;
       line-height: 1.35;
-      max-width: 780px;
     }
 
     .etiqueta {
@@ -158,9 +163,9 @@
       background-color: var(--verde);
       color: white;
       font-family: Arial, sans-serif;
-      font-size: 10px;
+      font-size: 9px;
       padding: 2px 6px;
-      border-radius: 10px;
+      border-radius: 8px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
       white-space: nowrap;
@@ -169,60 +174,28 @@
     .destacado {
       background: var(--beige);
       border-left: 4px solid var(--rojo);
-      padding: 12px 14px;
-      border-radius: 5px;
-    }
-
-    .dos-columnas {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-    }
-
-    @media (min-width: 768px) {
-      .carta {
-        padding: 18px;
-        margin: 35px auto;
-        border-width: 8px;
-      }
-
-      .marco {
-        padding: 35px 45px;
-      }
-
-      .dos-columnas {
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
-      }
-
-      .nombre-plato,
-      .precio {
-        font-size: 19px;
-      }
-
-      .descripcion-plato {
-        font-size: 14px;
-      }
+      padding: 10px 12px;
+      border-radius: 4px;
+      margin: 16px 0;
     }
 
     .nota {
       text-align: center;
-      border-top: 2px solid var(--dorado);
-      margin-top: 35px;
-      padding-top: 20px;
+      border-top: 1.5px solid var(--dorado);
+      margin-top: 25px;
+      padding-top: 15px;
       color: var(--gris);
       font-family: Arial, sans-serif;
-      font-size: 12.5px;
-      line-height: 1.5;
+      font-size: 12px;
+      line-height: 1.4;
     }
 
     footer {
       text-align: center;
-      margin-top: 20px;
+      margin-top: 15px;
       color: var(--vino);
+      font-size: 13px;
       font-weight: bold;
-      font-size: 14px;
-      letter-spacing: 0.5px;
       line-height: 1.4;
     }
   </style>
@@ -244,89 +217,88 @@
         </p>
       </header>
 
-      <!-- ENTRADAS Y SOPAS -->
-      <div class="dos-columnas">
-        <section class="seccion">
-          <div class="titulo-seccion">
-            <h2>Entradas</h2>
-          </div>
+      <!-- ENTRADAS -->
+      <section class="seccion">
+        <div class="titulo-seccion">
+          <h2>Entradas</h2>
+        </div>
 
-          <div class="plato">
-            <div class="fila-plato">
-              <span class="nombre-plato">Bruschettas italianas</span>
-              <span class="puntos"></span>
-              <span class="precio">$6.50</span>
-            </div>
-            <p class="descripcion-plato">
-              Pan tostado, tomate fresco, albahaca y aceite de oliva.
-            </p>
+        <div class="plato">
+          <div class="fila-plato">
+            <span class="nombre-plato">Bruschettas italianas</span>
+            <span class="puntos"></span>
+            <span class="precio">$6.50</span>
           </div>
+          <p class="descripcion-plato">
+            Pan tostado, tomate fresco, albahaca y aceite de oliva.
+          </p>
+        </div>
 
-          <div class="plato destacado">
-            <div class="fila-plato">
-              <span class="nombre-plato">
-                Tabla de quesos
-                <span class="etiqueta">Favorito</span>
-              </span>
-              <span class="puntos"></span>
-              <span class="precio">$12.00</span>
-            </div>
-            <p class="descripcion-plato">
-              Selección de quesos, frutos secos, aceitunas y mermelada.
-            </p>
+        <div class="plato destacado">
+          <div class="fila-plato">
+            <span class="nombre-plato">
+              Tabla de quesos
+              <span class="etiqueta">Favorito</span>
+            </span>
+            <span class="puntos"></span>
+            <span class="precio">$12.00</span>
           </div>
+          <p class="descripcion-plato">
+            Selección de quesos, frutos secos, aceitunas y mermelada.
+          </p>
+        </div>
 
-          <div class="plato">
-            <div class="fila-plato">
-              <span class="nombre-plato">Croquetas de jamón</span>
-              <span class="puntos"></span>
-              <span class="precio">$7.90</span>
-            </div>
-            <p class="descripcion-plato">
-              Croquetas caseras servidas con salsa de la casa.
-            </p>
+        <div class="plato">
+          <div class="fila-plato">
+            <span class="nombre-plato">Croquetas de jamón</span>
+            <span class="puntos"></span>
+            <span class="precio">$7.90</span>
           </div>
-        </section>
+          <p class="descripcion-plato">
+            Croquetas caseras servidas con salsa de la casa.
+          </p>
+        </div>
+      </section>
 
-        <section class="seccion">
-          <div class="titulo-seccion">
-            <h2>Ensaladas</h2>
-          </div>
+      <!-- ENSALADAS -->
+      <section class="seccion">
+        <div class="titulo-seccion">
+          <h2>Ensaladas</h2>
+        </div>
 
-          <div class="plato">
-            <div class="fila-plato">
-              <span class="nombre-plato">Ensalada César</span>
-              <span class="puntos"></span>
-              <span class="precio">$9.50</span>
-            </div>
-            <p class="descripcion-plato">
-              Lechuga romana, pollo, parmesano, crutones y aderezo César.
-            </p>
+        <div class="plato">
+          <div class="fila-plato">
+            <span class="nombre-plato">Ensalada César</span>
+            <span class="puntos"></span>
+            <span class="precio">$9.50</span>
           </div>
+          <p class="descripcion-plato">
+            Lechuga romana, pollo, parmesano, crutones y aderezo César.
+          </p>
+        </div>
 
-          <div class="plato">
-            <div class="fila-plato">
-              <span class="nombre-plato">Ensalada mediterránea</span>
-              <span class="puntos"></span>
-              <span class="precio">$10.00</span>
-            </div>
-            <p class="descripcion-plato">
-              Tomate, pepino, aceitunas, cebolla morada y queso feta.
-            </p>
+        <div class="plato">
+          <div class="fila-plato">
+            <span class="nombre-plato">Ensalada mediterránea</span>
+            <span class="puntos"></span>
+            <span class="precio">$10.00</span>
           </div>
+          <p class="descripcion-plato">
+            Tomate, pepino, aceitunas, cebolla morada y queso feta.
+          </p>
+        </div>
 
-          <div class="plato">
-            <div class="fila-plato">
-              <span class="nombre-plato">Ensalada de la huerta</span>
-              <span class="puntos"></span>
-              <span class="precio">$8.50</span>
-            </div>
-            <p class="descripcion-plato">
-              Verduras frescas de temporada con vinagreta de miel.
-            </p>
+        <div class="plato">
+          <div class="fila-plato">
+            <span class="nombre-plato">Ensalada de la huerta</span>
+            <span class="puntos"></span>
+            <span class="precio">$8.50</span>
           </div>
-        </section>
-      </div>
+          <p class="descripcion-plato">
+            Verduras frescas de temporada con vinagreta de miel.
+          </p>
+        </div>
+      </section>
 
       <!-- PLATOS PRINCIPALES -->
       <section class="seccion">
@@ -337,7 +309,7 @@
         <div class="plato destacado">
           <div class="fila-plato">
             <span class="nombre-plato">
-              Filete de res a la parrilla
+              Filete de res
               <span class="etiqueta">Especialidad</span>
             </span>
             <span class="puntos"></span>
@@ -399,136 +371,129 @@
           <h2>Pizzas artesanales</h2>
         </div>
 
-        <div class="dos-columnas">
-          <div>
-            <div class="plato">
-              <div class="fila-plato">
-                <span class="nombre-plato">Margarita</span>
-                <span class="puntos"></span>
-                <span class="precio">$12.00</span>
-              </div>
-              <p class="descripcion-plato">
-                Salsa de tomate, mozzarella y albahaca.
-              </p>
-            </div>
-
-            <div class="plato">
-              <div class="fila-plato">
-                <span class="nombre-plato">Pepperoni</span>
-                <span class="puntos"></span>
-                <span class="precio">$14.00</span>
-              </div>
-              <p class="descripcion-plato">
-                Pepperoni, mozzarella y salsa especial de tomate.
-              </p>
-            </div>
+        <div class="plato">
+          <div class="fila-plato">
+            <span class="nombre-plato">Margarita</span>
+            <span class="puntos"></span>
+            <span class="precio">$12.00</span>
           </div>
+          <p class="descripcion-plato">
+            Salsa de tomate, mozzarella y albahaca.
+          </p>
+        </div>
 
-          <div>
-            <div class="plato">
-              <div class="fila-plato">
-                <span class="nombre-plato">Vegetariana</span>
-                <span class="puntos"></span>
-                <span class="precio">$13.50</span>
-              </div>
-              <p class="descripcion-plato">
-                Pimientos, cebolla, champiñones, aceitunas y tomate.
-              </p>
-            </div>
-
-            <div class="plato">
-              <div class="fila-plato">
-                <span class="nombre-plato">Cuatro quesos</span>
-                <span class="puntos"></span>
-                <span class="precio">$15.00</span>
-              </div>
-              <p class="descripcion-plato">
-                Mozzarella, parmesano, gorgonzola y queso crema.
-              </p>
-            </div>
+        <div class="plato">
+          <div class="fila-plato">
+            <span class="nombre-plato">Pepperoni</span>
+            <span class="puntos"></span>
+            <span class="precio">$14.00</span>
           </div>
+          <p class="descripcion-plato">
+            Pepperoni, mozzarella y salsa especial de tomate.
+          </p>
+        </div>
+
+        <div class="plato">
+          <div class="fila-plato">
+            <span class="nombre-plato">Vegetariana</span>
+            <span class="puntos"></span>
+            <span class="precio">$13.50</span>
+          </div>
+          <p class="descripcion-plato">
+            Pimientos, cebolla, champiñones, aceitunas y tomate.
+          </p>
+        </div>
+
+        <div class="plato">
+          <div class="fila-plato">
+            <span class="nombre-plato">Cuatro quesos</span>
+            <span class="puntos"></span>
+            <span class="precio">$15.00</span>
+          </div>
+          <p class="descripcion-plato">
+            Mozzarella, parmesano, gorgonzola y queso crema.
+          </p>
         </div>
       </section>
 
-      <!-- POSTRES Y BEBIDAS -->
-      <div class="dos-columnas">
-        <section class="seccion">
-          <div class="titulo-seccion">
-            <h2>Postres</h2>
-          </div>
+      <!-- POSTRES -->
+      <section class="seccion">
+        <div class="titulo-seccion">
+          <h2>Postres</h2>
+        </div>
 
-          <div class="plato">
-            <div class="fila-plato">
-              <span class="nombre-plato">Cheesecake</span>
-              <span class="puntos"></span>
-              <span class="precio">$6.00</span>
-            </div>
-            <p class="descripcion-plato">
-              Pastel de queso con salsa de frutos rojos.
-            </p>
+        <div class="plato">
+          <div class="fila-plato">
+            <span class="nombre-plato">Cheesecake</span>
+            <span class="puntos"></span>
+            <span class="precio">$6.00</span>
           </div>
+          <p class="descripcion-plato">
+            Pastel de queso con salsa de frutos rojos.
+          </p>
+        </div>
 
-          <div class="plato">
-            <div class="fila-plato">
-              <span class="nombre-plato">Brownie con helado</span>
-              <span class="puntos"></span>
-              <span class="precio">$6.50</span>
-            </div>
-            <p class="descripcion-plato">
-              Brownie de chocolate caliente con helado de vainilla.
-            </p>
+        <div class="plato">
+          <div class="fila-plato">
+            <span class="nombre-plato">Brownie con helado</span>
+            <span class="puntos"></span>
+            <span class="precio">$6.50</span>
           </div>
+          <p class="descripcion-plato">
+            Brownie de chocolate caliente con helado de vainilla.
+          </p>
+        </div>
 
-          <div class="plato">
-            <div class="fila-plato">
-              <span class="nombre-plato">Tiramisú</span>
-              <span class="puntos"></span>
-              <span class="precio">$6.00</span>
-            </div>
-            <p class="descripcion-plato">
-              Postre italiano con café, mascarpone y cacao.
-            </p>
+        <div class="plato">
+          <div class="fila-plato">
+            <span class="nombre-plato">Tiramisú</span>
+            <span class="puntos"></span>
+            <span class="precio">$6.00</span>
           </div>
-        </section>
+          <p class="descripcion-plato">
+            Postre italiano con café, mascarpone y cacao.
+          </p>
+        </div>
+      </section>
 
-        <section class="seccion">
-          <div class="titulo-seccion">
-            <h2>Bebidas</h2>
-          </div>
+      <!-- BEBIDAS -->
+      <section class="seccion">
+        <div class="titulo-seccion">
+          <h2>Bebidas</h2>
+        </div>
 
-          <div class="plato">
-            <div class="fila-plato">
-              <span class="nombre-plato">Limonada natural</span>
-              <span class="puntos"></span>
-              <span class="precio">$3.00</span>
-            </div>
+        <div class="plato">
+          <div class="fila-plato">
+            <span class="nombre-plato">Limonada natural</span>
+            <span class="puntos"></span>
+            <span class="precio">$3.00</span>
           </div>
+        </div>
 
-          <div class="plato">
-            <div class="fila-plato">
-              <span class="nombre-plato">Jugo de frutas</span>
-              <span class="puntos"></span>
-              <span class="precio">$3.50</span>
-            </div>
+        <div class="plato">
+          <div class="fila-plato">
+            <span class="nombre-plato">Jugo de frutas</span>
+            <span class="puntos"></span>
+            <span class="precio">$3.50</span>
           </div>
+        </div>
 
-          <div class="plato">
-            <div class="fila-plato">
-              <span class="nombre-plato">Café espresso</span>
-              <span class="puntos"></span>
-              <span class="precio">$2.50</span>
-            </div>
+        <div class="plato">
+          <div class="fila-plato">
+            <span class="nombre-plato">Café espresso</span>
+            <span class="puntos"></span>
+            <span class="precio">$2.50</span>
           </div>
+        </div>
 
-          <div class="plato">
-            <div class="fila-plato">
-              <span class="nombre-plato">Refresco</span>
-              <span class="puntos"></span>
-              <span class="precio">$2.00</span>
-            </div>
+        <div class="plato">
+          <div class="fila-plato">
+            <span class="nombre-plato">Refresco</span>
+            <span class="puntos"></span>
+            <span class="precio">$2.00</span>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
 
       <div class="nota">
         <p>
