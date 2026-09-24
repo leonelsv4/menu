@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Carta del Restaurante</title>
+
+  <style>
+    :root {
+      --vino: #7b1e3a;
+      --rojo: #b8324b;
+      --dorado: #d69e2e;
+      --crema: #fffaf0;
+      --beige: #f4ead5;
+      --verde: #496b4a;
+      --cafe: #4a2c2a;
+      --gris: #6b625c;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background:
+        linear-gradient(rgba(255, 250, 240, 0.93), rgba(255, 250, 240, 0.93)),
+        url("https://www.transparenttextures.com/patterns/cream-paper.png");
+      color: var(--cafe);
+    }
+
+    .carta {
+      width: min(1000px, 92%);
+      margin: 35px auto;
+      background-color: var(--crema);
+      border: 8px solid var(--vino);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      padding: 18px;
+    }
+
+    .marco {
+      border: 2px solid var(--dorado);
+      padding: 35px 45px;
+    }
+
+    header {
+      text-align: center;
+      padding-bottom: 25px;
+      border-bottom: 2px solid var(--dorado);
+    }
+
+    .nombre-restaurante {
+      color: var(--vino);
+      font-size: clamp(38px, 7vw, 70px);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .subtitulo {
+      color: var(--verde);
+      font-size: 18px;
+      font-style: italic;
+      letter-spacing: 2px;
+    }
+
+    .decoracion {
+      color: var(--dorado);
+      font-size: 27px;
+      margin: 15px 0;
+    }
+
+    .descripcion {
+      color: var(--gris);
+      font-size: 15px;
+    }
+
+    .seccion {
+      margin-top: 38px;
+    }
+
+    .titulo-seccion {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 18px;
+      color: var(--vino);
+    }
+
+    .titulo-seccion::before,
+    .titulo-seccion::after {
+      content: "";
+      height: 2px;
+      background-color: var(--dorado);
+      flex: 1;
+    }
+
+    .titulo-seccion h2 {
+      font-size: 26px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .plato {
+      margin: 19px 0;
+    }
+
+    .fila-plato {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .nombre-plato {
+      color: var(--cafe);
+      font-size: 19px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .puntos {
+      border-bottom: 2px dotted var(--dorado);
+      flex: 1;
+      min-width: 15px;
+    }
+
+    .precio {
+      color: var(--rojo);
+      font-size: 19px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .descripcion-plato {
+      color: var(--gris);
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      font-style: italic;
+      margin-top: 4px;
+      max-width: 780px;
+    }
+
+    .etiqueta {
+      display: inline-block;
+      background-color: var(--verde);
+      color: white;
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 10px;
+      margin-left: 8px;
+      vertical-align: middle;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .destacado {
+      background: var(--beige);
+      border-left: 5px solid var(--rojo);
+      padding: 15px 18px;
+      border-radius: 5px;
+    }
+
+    .dos-columnas {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 45px;
+    }
+
+    .bebidas {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 30px;
+    }
+
+    .nota {
+      text-align: center;
+      border-top: 2px solid var(--dorado);
+      margin-top: 40px;
+      padding-top: 25px;
+      color: var(--gris);
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 25px;
+      color: var(--vino);
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 700px) {
+      .carta {
+        width: 96%;
+        margin: 10px auto;
+        border-width: 5px;
+      }
+
+      .marco {
+        padding: 25px 18px;
+      }
+
+      .dos-columnas,
+      .bebidas {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .titulo-seccion h2 {
+        font-size: 20px;
+        white-space: normal;
+      }
+
+      .nombre-plato,
+      .precio {
+        font-size: 16px;
+      }
+
+      .descripcion-plato {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="carta">
+    <div class="marco">
+
+      <header>
+        <h1 class="nombre-restaurante">La Buena Mesa</h1>
+        <p class="subtitulo">Cocina tradicional con un toque especial</p>
+
+        <div class="decoracion">✦ ❖ ✦</div>
+
+        <p class="descripcion">
+          Todos nuestros platos se preparan al momento con ingredientes frescos.
+        </p>
+      </header>
+
+      <!-- ENTRADAS Y SOPAS -->
+      <div class="dos-columnas">
+        <section class="seccion">
+          <div class="titulo-seccion">
+            <h2>Entradas</h2>
+          </div>
+
+          <div class="plato">
+            <div class="fila-plato">
+              <span class="nombre-plato">Bruschettas italianas</span>
+              <span class="puntos"></span>
+              <span class="precio">$6.50</span>
+            </div>
+            <p class="descripcion-plato">
+              Pan tostado, tomate fresco, albahaca y aceite de oliva.
+            </p>
+          </div>
+
+          <div class="plato destacado">
+            <div class="fila-plato">
+              <span class="nombre-plato">
+                Tabla de quesos
+                <span class="etiqueta">Favorito</span>
+              </span>
+              <span class="puntos"></span>
+              <span class="precio">$12.00</span>
+            </div>
+            <p class="descripcion-plato">
+              Selección de quesos, frutos secos, aceitunas y mermelada.
+            </p>
+          </div>
+
+          <div class="plato">
+            <div class="fila-plato">
+              <span class="nombre-plato">Croquetas de jamón</span>
+              <span class="puntos"></span>
+              <span class="precio">$7.90</span>
+            </div>
+            <p class="descripcion-plato">
+              Croquetas caseras servidas con salsa de la casa.
+            </p>
+          </div>
+        </section>
+
+        <section class="seccion">
+          <div class="titulo-seccion">
+            <h2>Ensaladas</h2>
+          </div>
+
+          <div class="plato">
+            <div class="fila-plato">
+              <span class="nombre-plato">Ensalada César</span>
+              <span class="puntos"></span>
+              <span class="precio">$9.50</span>
+            </div>
+            <p class="descripcion-plato">
+              Lechuga romana, pollo, parmesano, crutones y aderezo César.
+            </p>
+          </div>
+
+          <div class="plato">
+            <div class="fila-plato">
+              <span class="nombre-plato">Ensalada mediterránea</span>
+              <span class="puntos"></span>
+              <span class="precio">$10.00</span>
+            </div>
+            <p class="descripcion-plato">
+              Tomate, pepino, aceitunas, cebolla morada y queso feta.
+            </p>
+          </div>
+
+          <div class="plato">
+            <div class="fila-plato">
+              <span class="nombre-plato">Ensalada de la huerta</span>
+              <span class="puntos"></span>
+              <span class="precio">$8.50</span>
+            </div>
+            <p class="descripcion-plato">
+              Verduras frescas de temporada con vinagreta de miel.
+            </p>
+          </div>
+        </section>
+      </div>
+
+      <!-- PLATOS PRINCIPALES -->
+      <section class="seccion">
+        <div class="titulo-seccion">
+          <h2>Platos principales</h2>
+        </div>
+
+        <div class="plato destacado">
+          <div class="fila-plato">
+            <span class="nombre-plato">
+              Filete de res a la parrilla
+              <span class="etiqueta">Especialidad</span>
+            </span>
+            <span class="puntos"></span>
+            <span class="precio">$22.00</span>
+          </div>
+          <p class="descripcion-plato">
+            Filete acompañado de papas rústicas, vegetales salteados y salsa de pimienta.
+          </p>
+        </div>
+
+        <div class="plato">
+          <div class="fila-plato">
+            <span class="nombre-plato">Pasta Alfredo con pollo</span>
+            <span class="puntos"></span>
+            <span class="precio">$15.50</span>
+          </div>
+          <p class="descripcion-plato">
+            Pasta fresca en salsa cremosa de parmesano con pollo a la parrilla.
+          </p>
+        </div>
+
+        <div class="plato">
+          <div class="fila-plato">
+            <span class="nombre-plato">Salmón a la plancha</span>
+            <span class="puntos"></span>
+            <span class="precio">$20.00</span>
+          </div>
+          <p class="descripcion-plato">
+            Salmón fresco con arroz aromático, ensalada y salsa de limón.
+          </p>
+        </div>
+
+        <div class="plato">
+          <div class="fila-plato">
+            <span class="nombre-plato">Hamburguesa de la casa</span>
+            <span class="puntos"></span>
+            <span class="precio">$13.00</span>
+          </div>
+          <p class="descripcion-plato">
+            Carne de res, queso cheddar, cebolla caramelizada, lechuga y papas fritas.
+          </p>
+        </div>
+
+        <div class="plato">
+          <div class="fila-plato">
+            <span class="nombre-plato">Risotto de champiñones</span>
+            <span class="puntos"></span>
+            <span class="precio">$14.50</span>
+          </div>
+          <p class="descripcion-plato">
+            Arroz cremoso, champiñones, parmesano y perejil fresco.
+          </p>
+        </div>
+      </section>
+
+      <!-- PIZZAS -->
+      <section class="seccion">
+        <div class="titulo-seccion">
+          <h2>Pizzas artesanales</h2>
+        </div>
+
+        <div class="dos-columnas">
+          <div>
+            <div class="plato">
+              <div class="fila-plato">
+                <span class="nombre-plato">Margarita</span>
+                <span class="puntos"></span>
+                <span class="precio">$12.00</span>
+              </div>
+              <p class="descripcion-plato">
+                Salsa de tomate, mozzarella y albahaca.
+              </p>
+            </div>
+
+            <div class="plato">
+              <div class="fila-plato">
+                <span class="nombre-plato">Pepperoni</span>
+                <span class="puntos"></span>
+                <span class="precio">$14.00</span>
+              </div>
+              <p class="descripcion-plato">
+                Pepperoni, mozzarella y salsa especial de tomate.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <div class="plato">
+              <div class="fila-plato">
+                <span class="nombre-plato">Vegetariana</span>
+                <span class="puntos"></span>
+                <span class="precio">$13.50</span>
+              </div>
+              <p class="descripcion-plato">
+                Pimientos, cebolla, champiñones, aceitunas y tomate.
+              </p>
+            </div>
+
+            <div class="plato">
+              <div class="fila-plato">
+                <span class="nombre-plato">Cuatro quesos</span>
+                <span class="puntos"></span>
+                <span class="precio">$15.00</span>
+              </div>
+              <p class="descripcion-plato">
+                Mozzarella, parmesano, gorgonzola y queso crema.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- POSTRES Y BEBIDAS -->
+      <div class="dos-columnas">
+        <section class="seccion">
+          <div class="titulo-seccion">
+            <h2>Postres</h2>
+          </div>
+
+          <div class="plato">
+            <div class="fila-plato">
+              <span class="nombre-plato">Cheesecake</span>
+              <span class="puntos"></span>
+              <span class="precio">$6.00</span>
+            </div>
+            <p class="descripcion-plato">
+              Pastel de queso con salsa de frutos rojos.
+            </p>
+          </div>
+
+          <div class="plato">
+            <div class="fila-plato">
+              <span class="nombre-plato">Brownie con helado</span>
+              <span class="puntos"></span>
+              <span class="precio">$6.50</span>
+            </div>
+            <p class="descripcion-plato">
+              Brownie de chocolate caliente con helado de vainilla.
+            </p>
+          </div>
+
+          <div class="plato">
+            <div class="fila-plato">
+              <span class="nombre-plato">Tiramisú</span>
+              <span class="puntos"></span>
+              <span class="precio">$6.00</span>
+            </div>
+            <p class="descripcion-plato">
+              Postre italiano con café, mascarpone y cacao.
+            </p>
+          </div>
+        </section>
+
+        <section class="seccion">
+          <div class="titulo-seccion">
+            <h2>Bebidas</h2>
+          </div>
+
+          <div class="plato">
+            <div class="fila-plato">
+              <span class="nombre-plato">Limonada natural</span>
+              <span class="puntos"></span>
+              <span class="precio">$3.00</span>
+            </div>
+          </div>
+
+          <div class="plato">
+            <div class="fila-plato">
+              <span class="nombre-plato">Jugo de frutas</span>
+              <span class="puntos"></span>
+              <span class="precio">$3.50</span>
+            </div>
+          </div>
+
+          <div class="plato">
+            <div class="fila-plato">
+              <span class="nombre-plato">Café espresso</span>
+              <span class="puntos"></span>
+              <span class="precio">$2.50</span>
+            </div>
+          </div>
+
+          <div class="plato">
+            <div class="fila-plato">
+              <span class="nombre-plato">Refresco</span>
+              <span class="puntos"></span>
+              <span class="precio">$2.00</span>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="nota">
+        <p>
+          Los precios incluyen impuestos. Consulte por opciones vegetarianas,
+          veganas y sin gluten.
+        </p>
+        <p>Propina no incluida.</p>
+      </div>
+
+      <footer>
+        <p>La Buena Mesa · Calle Principal 123 · Tel. 555-123-456</p>
+      </footer>
+
+    </div>
+  </div>
+
+</body>
+</html>
